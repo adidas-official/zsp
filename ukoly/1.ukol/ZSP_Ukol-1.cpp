@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <array>
 
 void u1_1()
 {
@@ -44,9 +45,52 @@ void u1_1()
 
 }
 
-void u1_2()
+void u1_2(int n)
 {
     // todo u1-2
+    // input 5*int
+    // output
+    // Známky: z1<tab>z2<z3><tab>z4<tab>z5
+    // průměrná hodnota zaokrouhlená na dvě desetinná místa
+    // Prospěl s vyznamenáním: {1:Ano/0:Ne}
+    // Prospěl: {1:Ano/0:Ne}
+    // Neprospěl: {1:Ano/0:Ne}
+
+    int znamky[n];
+    int znamka;
+    float prumer;
+    bool prospel;
+    bool vyznamenani;
+    int soucet = 0;
+    char prumer_output[] = "Známky: ";
+
+    printf("Zadejte vaše známky\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%i", &znamka);
+
+        while (znamka > 5 || znamka < 1) {
+
+            printf("Zadejte znamku mezi 1 a 5\n");
+            scanf("%i", &znamka);
+        }
+
+        if (znamka > 2) {
+            vyznamenani = false;
+        }
+
+        if (znamka > 4) {
+            prospel = false;
+        }
+
+        znamky[i] = znamka;
+        soucet += znamka;
+    }
+
+    prumer = float(soucet) / n;
+
+    printf("Známky: %i\t%i\t%i\t%i\t%i\n", znamky[0], znamky[1], znamky[2], znamky[3], znamky[4]);
+    printf("průměrná hodnota zaokrouhlená na dvě desetinná místa %.2f\n", prumer);
 }
 
 void u1_3()
@@ -57,7 +101,7 @@ void u1_3()
 
 int main()
 {
-    u1_1();
+    u1_2(5);
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
