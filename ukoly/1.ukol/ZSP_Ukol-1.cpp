@@ -2,12 +2,12 @@
 //
 
 #include <iostream>
-#include <array>
+#include <stdio.h>
+#include <cmath>
+
 
 void u1_1()
 {
-    // todo u1-1
-    // 
     // input 1
     // pocet ks [int]
     // input 2
@@ -47,7 +47,6 @@ void u1_1()
 
 void u1_2(int n)
 {
-    // todo u1-2
     // input 5*int
     // output
     // Známky: z1<tab>z2<z3><tab>z4<tab>z5
@@ -104,13 +103,54 @@ void u1_2(int n)
 
 void u1_3()
 {
-    // todo u1-3
-}
+    // input 1:
+    // zkratka meny: str [EUR, GB, ...] 
+    // input 2:
+    // cena za jednotku meny: float
+    // input 3:
+    // pocet meny k nakupu: int
+    // 1 GBP = 24.9 Kč
+    // Nákup: 5 GBP
+    // Celkem: 5 x 24.9 = 124.5 Kč Zaokrouhleno: 125 Kč 
 
+    char mena[4];
+    float cena;
+    int pocet;
+    float celkem;
+
+    while (1) {
+        printf("Zadejte nazev meny\n");
+        if (scanf("%3s", mena) == 1) {
+            break;
+        }
+        while (getchar() != '\n');
+    }
+
+    while (1) {
+        printf("Zadejte nakupni cenu meny %s\n", mena);
+        if (scanf("%f", &cena) == 1) {
+            break;
+        }
+        while (getchar() != '\n');
+    }
+    printf("Kolik %s za %.2f chcete nakoupit?\n", mena, cena);
+    scanf("%i", &pocet);
+
+    celkem = float(pocet) * cena;
+
+    printf("1 %s = %.2f Kč\n", mena, cena);
+    printf("Nákup: %i %s\n", pocet, mena);
+    printf("Celkem: %i x %.2f = %.2f Kč Zaokrouhleno: %i Kč", pocet, cena, celkem, int(ceil(celkem)));
+
+}
 
 int main()
 {
+    u1_1();
+    printf("\n");
     u1_2(5);
+    printf("\n");
+    u1_3();
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
