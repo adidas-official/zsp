@@ -59,20 +59,26 @@ void u1_2(int n)
     int znamky[n];
     int znamka;
     float prumer;
-    bool prospel;
-    bool vyznamenani;
+    bool prospel = true;
+    bool vyznamenani = true;
     int soucet = 0;
-    char prumer_output[] = "Známky: ";
 
-    printf("Zadejte vaše známky\n");
     for (int i = 0; i < n; i++)
     {
-        scanf("%i", &znamka);
-
-        while (znamka > 5 || znamka < 1) {
-
+        while(true) {
             printf("Zadejte znamku mezi 1 a 5\n");
-            scanf("%i", &znamka);
+            if (scanf("%i", &znamka) == 1) {
+                if (znamka >= 1 && znamka <= 5) {
+                    break;
+                }
+                else {
+                    printf("Znamka musi byt cislo mezi 1 a 5\n");
+                }
+            }
+            else {
+                printf("Znamka musi byt cele cislo\n");
+                while(getchar() != '\n');  // vymaze input buffer. pokud buffer neco obsahuje, while loop jede do nekonecna, kde input pro scanf je to, co uzivatel zadal predtim. Pr.: input scanf je 'a', vyhodnoceni neni 1, znovu na zacetek while loop, scanf uz se nepta, ma zadano 'a', pokracuje s tim, atd.
+            }
         }
 
         if (znamka > 2) {
@@ -91,6 +97,9 @@ void u1_2(int n)
 
     printf("Známky: %i\t%i\t%i\t%i\t%i\n", znamky[0], znamky[1], znamky[2], znamky[3], znamky[4]);
     printf("průměrná hodnota zaokrouhlená na dvě desetinná místa %.2f\n", prumer);
+    printf("Prospel:  %s\n", (prospel == false) ? "Ne" : "Ano");
+    printf("Prospel s vyznamenanim: %s\n", (vyznamenani == false) ? "Ne" : "Ano");
+
 }
 
 void u1_3()
