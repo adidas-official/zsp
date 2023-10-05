@@ -93,6 +93,9 @@ void u1_2(int n)
     }
 
     prumer = float(soucet) / n;
+    if (prumer > 1.5) {
+        prospel = false;
+    }
 
     printf("Známky: %i\t%i\t%i\t%i\t%i\n", znamky[0], znamky[1], znamky[2], znamky[3], znamky[4]);
     printf("průměrná hodnota zaokrouhlená na dvě desetinná místa %.2f\n", prumer);
@@ -146,11 +149,11 @@ void u1_3()
 
 int main()
 {
-    u1_1();
-    printf("\n");
+    // u1_1();
+    // printf("\n");
     u1_2(5);
-    printf("\n");
-    u1_3();
+    // printf("\n");
+    // u1_3();
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
