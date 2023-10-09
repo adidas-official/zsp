@@ -41,7 +41,7 @@ void u1_1()
     printf("Účtenka\n");
     printf("Cena bez DPH/ks %.2lf Kč\tCena s DPH/ks %.2lf Kč\n", cena, cena_s_DPH);
     printf("Počet kusů: %i\tCena bez DPH %.2lf Kč\tCena s DPH (%i %%) %.2lf\n", pocet, celkem, DPHproc, celkem_s_DPH);
-
+    printf("\n\n");
 
 }
 
@@ -101,6 +101,7 @@ void u1_2(int n)
     printf("průměrná hodnota zaokrouhlená na dvě desetinná místa %.2f\n", prumer);
     printf("Prospel:  %s\n", (prospel == false) ? "Ne" : "Ano");
     printf("Prospel s vyznamenanim: %s\n", (vyznamenani == false) ? "Ne" : "Ano");
+    printf("\n\n");
 
 }
 
@@ -144,16 +145,15 @@ void u1_3()
     printf("1 %s = %.2f Kč\n", mena, cena);
     printf("Nákup: %i %s\n", pocet, mena);
     printf("Celkem: %i x %.2f = %.2f Kč Zaokrouhleno: %i Kč", pocet, cena, celkem, int(ceil(celkem)));
+    printf("\n\n");
 
 }
 
 int main()
 {
-    // u1_1();
-    // printf("\n");
+    u1_1();
     u1_2(5);
-    // printf("\n");
-    // u1_3();
+    u1_3();
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
