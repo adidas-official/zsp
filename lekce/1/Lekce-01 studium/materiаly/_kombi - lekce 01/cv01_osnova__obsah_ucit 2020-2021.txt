@@ -1,0 +1,52 @@
+
+Cvičení 01, kombi-studium
+
+Osnova:
+----------
+Algoritmizace -> Program, Příkazy, středník, vykonání programu shora dolu
+Vývojové prostředí -> Visual Studiu -> Projekt -> zdrojový kód programu, překlad program (kompilace), spuštění programu
+Formátovaný výstup dat. 
+Proměnná, deklarace proměnných různých datových typů.
+Konstantní hodnoty a jejich zápis: dekadická, šestnácková, znak, řetězec, 
+Změna hodnoty proměnné, kopie hodnoty.
+Obvod a obsah trojúhelníka. 
+Datum. Struktura datum. 
+Řídíc struktury, 
+Cykly. 
+Funkce a výrazy. 
+Menu. 
+
+Obsah:
+---------
+Ukázka: program na výpočet obvodu a obsahu obdélníka. 
+
+Ukázka: program na výpočet trojúhelníka. 
+	Verze: základní výpočet, ošetření chybového stavu, transformace 0 -> "Ne", 1 -> "Ano", funkce, předání info o provedeni operace ...
+
+Ukázka: program pro určit akademický rok. 	
+
+Ukázka: 
+test proměnné: rovnost == , nerovnost != , formy zápisu test na rovnost a na nerovnost, 
+zvýšit/snížit hodnotu - inkrementace/dekrementace (varianty zvýšení/snížení)  a++; a+=1; a=a+1;, post- a pre- inkrementace  b = a++;  b = ++a;
+
+Ukázka: Datum a tisk datumu v pevné délce. 
+
+Ukázka: Funkce na absolutní hodnota čísla. 
+
+Ukázka: Funkce na maximum ze dvou čísel a na maximum ze tří čísel.  DÚ: Které z čísel je větší (první nebo druhý?)
+
+Ukázka: Funkce na zaokrouhlení čísla, funkce. 
+
+Práce s polem. Zapsat, tisk, průměr. 
+
+Tisk znaku %, tabulator, \
+
+Struktura. Příklad na datum.
+
+Znak, hexadecimalne a dekadicky ascii-kod
+
+Načítání celého kladného čísla - funkce. 
+
+	
+A pak se vrátit k úvodu: deklarace proměnných, konstantní hodnoty a jejich zápis, formátování vstupu a výstup pro konkrétní datové typy, datové typy.
+

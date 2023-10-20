@@ -1,0 +1,57 @@
+Lekce (Cvičení) 01 - kombi studium
+----------------------------------------
+
+- úvod do programování
+- principy programování, styly programování
+- algoritmizace úlohy, algoritmus, vlastnosti algoritmu
+- programovací jazyk, jazyk C, vývojové prostředí jazyka
+- Visual Studio, (C++)
+
+- program, příkazy programu, vykonání (provedení) programu
+- vstupní bod programu, hlavní funkce (funkce Main), parametry funkce Main, příkazový řádek
+- začátek programu a konec programu, vykonání příkazů
+- programové bloky, pojmenované programové bloky (funkce)
+
+- jazyk C, příkazy jazyka - deklarace proměnné, datové typy, konstanta, vstup a výstup dat, větvení programu (if-else, switch), logické operátory
+- datové typy, význam datového typu, rozdělení datových typů
+
+
+
+Příklady:
+
+- Program na výpočet obvodu obdélníka ze zadaných stran. 
+- Program na výpočet obsahu obdélníka ze zadaných stran. 
+- Program na výpočet obvodu a obsahu obdélníka. 
+	Deklarace proměnných datového typu.
+	Ošetření chybvého stavu - neplatné hodnoty stran. 
+- Test na obdélník.
+
+- Program na výpočet obvodu a obsahu kružnice. 
+	Deklarace konstanty.
+
+- Program na výpočet obvodu a obsahu trojúhelníka, test na rovnostranný a rovnoramenný trojúhelník.
+
+-----------------------------
+
+- Zápis dat do souboru, čtení dat ze souboru. 
+- Datový typ pole. 
+	
+
+Shrnutí:
+
+- proměnná a konstanta, deklarace, datové typy
+- vstup a výstup dat - standardní vstup a výstup dat
+- operátor přiřazení =, kopie hodnoty
+- operátor porovnání == a !=, >, <, >=, <=
+- logické operátory !, &&, ||
+- inkrementace/dekrementace celočíselné proměnné ++, --
+
+
+
+
+
+
+ 
+
+ 
+

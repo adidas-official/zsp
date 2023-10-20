@@ -1,0 +1,96 @@
+
+Úvod do programování, algoritmizace úlohy
+- algoritmus, vlastnosti algoritmu, zápis algoritmy, konstruktry algoritmu
+- funkce algoritmu
+- program, vykonání programu, vstupní bod programu - hlavní funkce programu
+
+Úvod do programování
+- zápis algoritmu, programovací jazyk, syntaxe jazyka, zdrojový kód, překlad programu, překladač a kompilátor
+- styly programování - strukturovaný styl (jazyk C) a objektově-orientovaný styl (jazyk C++, Java, C#, ...)
+- vývojové prostředí jazyka, Visual Studio 
+
+- proměnná, datový typ, konstanta, datový typ řetězec, datový typ struktura, datový typ pole
+- hodnota proměnné, zápis hodnoty do proměnné - operátor přiřazení
+- operátory, výrazy, hodnota výrazu
+- vstup a výstup dat v konzolové aplikaci
+- konstrukce rozhodování (větvení), konstrukce cyklu
+	if, if-else, switch; for, while, do-while
+- funkce, parametry funkcí, návratová hodnota funkce
+
+-----------------------------------------
+
+- algoritmizace, algoritmus, vlastnosti algoritmu
+
+- zobrazení textu, řádkování (konec řádky)
+Text "Zaklady strukturovaneho programovani - ZSP", "2022/2023", "zimni semestr"
+
+- načtení jména, načtení jména a načtení příjmení, zobrazení načtených hodnot
+deklarace proměnné typu text, escape sekvence \n
+
+- Program pro výpočet obvodu a obsahu obdélníka.
+typ int, deklarace proměnných typu int, způsoby deklarace: 
+int a;
+int b;
+int a, b;
+
+typ float/double, zaokrouhlení zobrazení hodnot
+
+- program pro výpočet obvodu a obsahu kružnice
+proměnná typu konstanta PI, DVE_PI
+
+- program pro výpočet přímky, 
+
+
+- program pro výpočet trojúhelníka - obvod, obsah, test rovnostranný, test rovnoramenný
+a) pro typ int, přetypování při dělení 
+b) pro typ float/double
+obvod a obsah, test rovnostranný a rovnoramenný, ternární operátor pro zobrazení "Ano", "Ne", ošetření "chybového stavu"
+přepracovat ve funkce, exportovat do modulu
+
+- program pro načtení hodnot datumu a zobrazení datumu, přepracovat ve funkci,
+formátování délky datumu
+měsíc jako číslo a měsíc jako text - způsoby realizace
+způsoby využití scanf pro načtení víde hodnot
+
+- program pro souřadnice bodu
+
+- ukázky práce s proměnnou
+
+načtení hodnoty typu a zápis hodnoty typu
+hodnota proměnné typu int, test hodnoty, inkrementace a dekrementace proměnné, změna hodnoty proměnné
+hodnota proměnné typu char, načtení a zobrazení hodnoty typu znak
+hodnota proměnné typu řetězec, zápis hodnoty do proměnné, funkce strcpy
+dělení hodnoty typu celé číslo a celé číslo, přetypování, reálné dělení
+prorita operátorů
+
+Výrazy, operátory, funkce
+- funkce pro zobrazení ASCII kódu znaku (decimálně, hexadecimálně)
+- funkce pro zakrouhlení čísla a zobrazení hodnoty, funkce pro zaokrouhlení čísla a poskytnutí výsledku
+- funkce rozhodne o čísle, kladné číslo, záporné číslo nebo nulové číslo, vrátí výsledek návratovou hodnotu, zobrazit informaci podle výsledku
+- program a funkce pro práci s přímkou
+- funkce pro test celého čísla na sudé číslo/liché číslo
+- funkce pro přestupný rok
+- program pro výpočet hodnoty kvadratické rovnice
+- funkce pro načtení hodnoty přirozeného čísla
+
+Konstrukce cyklu
+- zobrazení hodnost od 0 do 10, zobrazení hodnot v intervalu
+zobrazení počtu hvězdiček
+- zobrazení ASCII tabulky, tabulátor \t
+- malá násobilka, zápis do souboru
+
+Datový typ pole
+- funkce pro zjistění délky textu, zobrazení znaků textu
+- pole celých čísel, známky a průměr známek
+
+Souborové operace
+- zápis do souboru, čtení ze souboru
+
+
+
+
+
+
+
+
+
