@@ -1,0 +1,123 @@
+# Uloha 1
+V C může existovat více funkcí stejného jména? Přesněji: mohou se v C přetěžovat funkce?
+Vyberte jednu z nabízených možností:
+
+a. Pravda
+b. Nepravda
+
+odpoved: b
+====================================================================================================================
+
+# Uloha 2
+Uvažte následující fragment kódu:
+
+#include <cerrno> // errno
+#include <string.h> // strerror
+#include <stdio.h> // prinf, FILE, fopen
+
+int main() {
+	FILE *f = fopen("moje.data", "r");
+	if (f == NULL) {
+		printf("Chyba: %d\n", errno);
+	}
+	return 0;
+}
+
+Co bude na standardním výstupu po jeho skončení, pokud soubor moje.data neexistuje (číslo této chyby je 2)?
+
+odpoved: "Chyba: 2"
+====================================================================================================================
+
+# Uloha 3
+Jak se jmenuje symbolická konstanta, která v knihovně limits.h definuje maximální celé číslo typu int?
+
+odpoved: INT_MAX
+====================================================================================================================
+
+# Uloha 4
+Funkce malloc z knihovny stdlib.h alokuje paměť a její obsah vynuluje.
+
+Vyberte jednu z následujících možností:
+
+a. Pravda
+b. Nepravda
+
+odpoved: b
+====================================================================================================================
+
+# Uloha 5
+Je následující zápis správný příkaz?
+x = 7
+
+Vyberte jednu z následujících možností:
+
+a. Pravda
+b. Nepravda
+
+odpoved: b, je to výraz
+====================================================================================================================
+
+# Uloha 6
+Jakým způsobem lze regulérně ukončit program jako správně provedený a dokončený?
+
+a. Příkazem return 0; ve funkci main.
+b. Voláním funkce exit(0).
+c. Voláním funkce abort().
+d. Voláním funkce atexit(f).
+e. Příkazem return -1; ve funkci main.
+f. Voláním funkce exit(-1).
+
+odpoved: a, b
+====================================================================================================================
+
+# Uloha 7
+Co vrátí funkce getenv("HOME") ze standardní knihovny stdlib.h?
+
+a. Obsah monitorové proměnné HOME - cesta k domovskému adresáři.
+b. Potvrzení, že se nacházíme v domovském adresáři.
+c. Žádná funkce getenv v knihovně stdlib.h neexistuje.
+
+odpoved: a
+====================================================================================================================
+
+# Uloha 8
+Funkce bsearch slouží pro řazení binárním půlením?
+
+Vyberte jednu z nabízených možností:
+
+a. Pravda
+b. Nepravda
+
+odpoved: b
+====================================================================================================================
+
+# Uloha 9
+Co vytiskne následující fragment kódu:
+
+int n = 7;
+switch ( n ) {
+  case 6: printf("X"); break;
+  case 7: printf("XX"); 
+  case 8: printf("XXX"); break;
+  default: printf("XXXX");
+}
+
+a. XX
+b. XXXXX
+c. XXX
+d. XXXX
+
+odpoved: b
+====================================================================================================================
+
+# Uloha 10
+Pokud alokujeme místo ve volné paměti pomocí funkce malloc, calloc, nebo realoc, kterou funkci je nutné zavolat, aby nám místo ve volné paměti nezůstalo nevyužitelné, poté co ho již nepotřebujeme?
+
+a.  dealloc
+b.  free
+c.  release
+d.  delete
+
+odpoved: b
+====================================================================================================================
+

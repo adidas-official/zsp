@@ -1,0 +1,107 @@
+# Uloha 1
+Modifikujici operator se vyznačuje tim, że meni svůj argument.
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b
+===================================================================================================
+
+# Uloha 2
+Kterým klíčovým slovem požádáme překladač o doplnění typu proměnné? (Pozor, záleží na
+velikosti písmen!)
+
+odpoved: auto
+
+===================================================================================================
+
+# Uloha 3
+Logické výrazy se povinné vyhodnocuji zprava do leva?
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b
+===================================================================================================
+
+# Uloha 4
+Uvažte následující fragment kódu:
+int x = 3;
+int y = 4;
+if ((x = y) && (x == y)) x = 15;
+Jaká bude hodnota proměnné x?
+a. 3
+b. 15
+c. Hodnotu nelze určit, závisí na pořadí vyhodnocení operací.
+d. 4
+
+oznaceno: b
+===================================================================================================
+
+# Uloha 5
+Pro převod čísel z dekadické soustavy do soustavy o základu Z lze použít algoritmus, kdy převáděné číslo dělíme základem a vždy zbytek po dělení zapíšeme jako výstupní číslici. Zbytek po dělení je totiž správná cifra v soustavě o základu Z.
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: a; deleni s ostatkem (modulo)
+===================================================================================================
+
+# Uloha 6
+Jaká bude hodnota proměnné str po provedení následujícího kódu:
+char str[]= "Naydar";
+char *ptr=&str[2];
+*ptr= 'z';
+
+odpoved: Nazdar
+===================================================================================================
+
+# Uloha 7
+Je následující zápis správný příkaz?
+x = 7
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b; jedna se o vyraz, protoze chybi strednik ";"
+===================================================================================================
+
+# Uloha 8
+Běžné aritmetické konverze (usual arithmetic conversions) způsobí:
+a. Složitější argument je převeden na typ jednoduššího
+b. Jednodušší argument je převeden na typ složitějšího 
+c. Oba argumenty jsou převedeny na nejbližší složitější typ 
+d. Argumenty se ponechají tak, jak vznikly pro roztažení
+
+oznaceno: b
+===================================================================================================
+
+# Uloha 9
+Mějme následující deklarace:
+
+double calc(double);
+int count (const string &, char);
+
+Která z následujících volání jsou správně?
+(a) calc(23.4, 55.1);
+(b) count("abcda", 'a');
+(c) calc(66);
+
+a. Výraz (c) je správně.
+b. Výraz (a) je správně.
+c. Výraz (b) je správně.
+
+oznaceno: a; spravne volani je jen "calc(66)", POZOR! odpovedi jsou prohazene (?)
+===================================================================================================
+
+# Uloha 10
+Je pravda následující tvrzení:
+*(&x) == x
+
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: a
+===================================================================================================
+

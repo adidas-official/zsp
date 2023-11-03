@@ -1,0 +1,106 @@
+# Uloha 1
+Uvažte následující fragment kodu:
+char str[20];
+Je správně zapsána následující hlavička příkazu cyklu, kterým se projdou všechny znaky pole str: for (int i = 0; i < 20; i++) ... str[i]...
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: a
+===========================================================================================================================================
+
+# Uloha 2
+Implicitní způsob volání parametrů funkce je:
+a. Volání jménem
+b. Volání referencí
+c. Volání hodnotou
+
+oznaceno: c
+===========================================================================================================================================
+
+# Uloha 3
+Co vytiskne následující fragment kódu:
+int x = 5;
+printf("%d %d\n", x++, ++x);
+
+a. 77
+b. 57
+c. Výsledek nelze určit, závisí na implementaci (záleží na pořadí vyhodnocení parametrů)
+d. 67
+
+oznaceno: c; x++ a ++x delaji neco jineho.
+===========================================================================================================================================
+
+# Uloha 4
+Jaké jsou strukturované příkazy?
+a. Přepínač
+b. Podmíněný příkaz
+c. Cyklus
+d. Volání funkce
+e. Přiřazení
+
+oznaceno: b, c, e
+===========================================================================================================================================
+
+# Uloha 5
+Uvažte následující fragment kódu:
+int x = 7;
+x = x << 3;
+Jaká bude hodnota proměnné x?
+a. 56
+b. 49
+c. 63
+
+oznaceno: a; 7 binarne je 111, bitovy posun o 3 doleva udela 111000, tj 56 v dec;
+===========================================================================================================================================
+
+# Uloha 6
+
+Příkaz goto lze použít pouze v rámci funkce?
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b
+===========================================================================================================================================
+
+# Uloha 7
+Pořadí vyhodnocení parametrů funkce je:
+a. Je dáno implementací, nikoliv jazykem
+b. Nejprve nejjednodušší, pak složitější
+c. Zleva doprava (od prvního k poslednímu)
+d. Zprava doleva (od posledního k prvnímu)
+
+oznaceno: d
+===========================================================================================================================================
+
+# Uloha 8
+Je správně následující příkaz, pokud je x deklarována jako proměnná typu int? scanf("%d",x);
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b; chybi argument pro predani adresy pro ulozeni "&x"
+===========================================================================================================================================
+
+# Uloha 9
+Jsou následující fragmenty kódu ekvivalentní z hlediska výstupu, za předpokladu deklarace int x;
+printf("Hodnota: %d\n",x);
+printf("Hodnota: %d\n",x,x);
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: a
+===========================================================================================================================================
+
+# Uloha 10
+Jaké možnosti máme pro změnu hodnot prostřednictvím funkce?
+a. Použití parametrů volaných jménem
+b. Použití ukazatelů jako parametrů
+c. Použití parametrů volaných hodnotou
+d. Návratová hodnota funkce
+
+oznaceno: a, b
+===========================================================================================================================================
+

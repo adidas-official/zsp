@@ -1,0 +1,130 @@
+# Uloha 1
+Napište příkaz, který je třeba doplnit do níže uvedeného kódu, aby se vstupní soubor správně uzavřel a uvolnil všechny alokované prostředky.
+
+FILE *ifile;
+ifile = fopen(soubor,"heslo.txt");
+if(ferror(ifile)) { printf("soubor nelze otevrit"); }
+else{ printf("OK"); }
+
+odpoved: fclose(ifile);
+===================================================================================================
+
+# Uloha 2
+Zápis:
+int f(int x, float y);
+je definice funkce 1?
+Vyberte jednu z nabízených možnosti:
+a. Pravda
+b. Nepravda
+
+oznaceno b
+===================================================================================================
+
+# Uloha 3
+Jak byste deklarovali funkci integral, která pro zadaný funkcionál f (ukazatel na reálnou funkci jedné reálné promenné) a zadaný interval x_min až x_max vypočte (numericky) určitý integrál této funkce přes zadaný interval?
+a. double integral(double (*f)(double x), double x_min, double x_max);
+b. double integral(double *(*f)(double x), double x_min, double x_max);
+c. double integral(double *f(double x), double x_min, double x_max);
+d. double integral(double f(double x), double x_min, double x_max);
+
+oznaceno: a
+===================================================================================================
+
+# Uloha 4 (vice odpovedi)
+Každá funkce musí mít:
+a. Může mít právě jednu deklaraci a právě jen jednu definici.
+b. Může mít pouze jednu definici.
+c. Může mít pouze deklaraci.
+d. Vždy právě jednu deklaraci a více definic.
+
+oznaceno a, c, d
+===================================================================================================
+
+# Uloha 5
+V šachovém programu reprezentujete figury hodnotami typu char, pricemž používáte hodnoty z následujícího výčtu:
+enum {
+	MASKA FIGURY = 007,
+	MASKA_BARVY=030,
+	PESEC = 0, VEZ, KUN, STRELEC, DAMA, KRAL,
+	PRAZDNE = 000, BILY=010, CERNY = 020,
+};
+
+Tedy například pole s bílým králem obsahuje hodnotu BILY | KRAL, zatímco prázdné pole hodnotu PRAZDNE (technicky vlastně PRAZDNE | PESEC). Vyberte deklaraci funkce cerny_kun_napada, která vypíše seznam figur bílého, které ohrožuje černý
+kůň.
+
+a. void cerny_kun_napada(const char sachovnice[8]);
+b. void cerny_kun_napada(const char sachovnice[8][8]); 
+
+oznaceno b
+===================================================================================================
+
+# Uloha 6
+
+Nechť je deklarován soubor file takto:
+
+FILE *file;
+
+Které z následujících výrazů jsou správné:
+a. file = fseek(file, OL, SEEK_END)
+b. frename(file, "muj.txt")
+c. fclose(file).
+d. file fopen("muj.txt","r+").
+
+oznaceno: c, d
+===================================================================================================
+
+# Uloha 7
+Funkce swaparr má za cil prohodit mezi sebou prvky dvou zadaných polí (stejné délky). Má tato funkce nejaké mouchy? 
+
+void swaparr(int *p, int *q, int pocet) {
+    int pom;
+    for(;-pocet >= 0; pom = *p, *p++ = *q, *q++ = pom);
+}
+
+a. Funkce funguje správně.
+b. Funkce prohodí o jeden prvek méně, než je počet.
+c. Funkce neplní vůbec svoji funkci.
+d. Funkce neprohodí první prvek polí.
+
+oznaceno c; ma byt b
+===================================================================================================
+
+# Uloha 8
+
+Co bude výstupem následujícího programu, pokud jej spustíme uvedeným příkazem:
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+	int i = 1;
+	while (i <= argc)
+		printf("%s", argv[i++]);
+		printf("\n");
+}
+
+> copypar 1 2 3
+
+odpoved: 123
+===================================================================================================
+
+# Uloha 9
+Přiřazení je v C/C++ příkaz?
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b; Přiřazení je výraz.
+
+===================================================================================================
+
+# Uloha 10
+Je správně následující volání funkce printf?
+
+printf("%d\n");
+
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno b; chybí argument pro %d
+===================================================================================================

@@ -1,0 +1,147 @@
+# Uloha 1
+Uvažte následující definici funkce main v souboru program.cpp.
+
+int main(int argc, char *argv[]) {
+	switch (argc) {
+		case 2:
+		case 1:
+			printf("vstup: %s\n", argv[1]);
+			break;
+		default:
+		{printf("Chybny pocet parametru\n"); return 1;}
+	}
+	return 0;
+}
+Co se vypíše, pokud program spustíme z příkazové řádky příkazem:
+>program muj.txt
+
+odpoved: "vstup: muj.txt"
+====================================================================================================================
+
+# Uloha 2
+Zapište direktivu, která nadefinuje symbolickou konstantu DEBUG (včetně znaku #).
+
+odpoved: #define DEBUG
+====================================================================================================================
+
+# Uloha 3
+Mějme následující deklarace: double calc(double, double); int count (char *, char);
+Která z následujících volání se nepřeloží?
+(a) calc(23.4, 55.1);
+(b) count("abcda", 'a');
+(c) calc(66);
+
+a. Výraz (a) se nepřeloží.
+b. Výraz (b) se nepřeloží.
+c. Výraz (c) se nepřeloží.
+
+oznaceno: c
+====================================================================================================================
+
+# Uloha 4
+Zapište direktivu, která slouží pr opodmíněný překlad, pokud je definována symbolická konstanta DEBUG (včetně znaku #).
+
+odpoved: #ifdef DEBUG
+====================================================================================================================
+
+# Uloha 5
+Je dán následující program. Jaká hodnota se zapíše do proměnné v?
+
+#include <iostream>
+
+int zpracuj(int cisla[], int c, int h) {
+    int suma = 0;
+    int i = 0;
+    while ((i < c) && (cisla[i] == h))
+        suma += cisla[i++];
+    return suma;
+};
+
+int main() {
+    const int SIZE = 4;
+    int hodn[SIZE];
+    hodn[0] = 3;
+    hodn[1] = 3;
+    hodn[2] = 8;
+    hodn[3] = 3;
+    int v = zpracuj (hodn, SIZE, 3);
+
+    std::cout << "v=" << v << std::endl;
+    return 0;
+};
+
+a. 3
+b. 6
+c. 9
+
+oznaceno: b; funkce scita hodnoty z pole hodn dokud je splnena podminka cisla[i] == 3. to skonci jakmile i = 2,
+takze se 3 secte 2x
+====================================================================================================================
+
+# Uloha 6
+Co je chybně v následujícím fragmentu kódu:
+
+void f(int x) { sem: return x+11; }
+void g(float x) { x += 11; goto sem. }
+
+a. Funkce g neobsahuje příkaz return
+b. Nelze skákat z funkce do funkce
+c. Je to správný kód
+
+oznaceno: b;
+====================================================================================================================
+
+# Uloha 7
+Objekty typu union se inicializují podle první položky?
+Vyberte jednu z nabízených možností:
+a. Pravda
+b. Nepravda
+
+oznaceno: b
+====================================================================================================================
+
+# Uloha 8
+Napište volání funkce, která otevře soubor data.txt pouze pro čtení jako textový soubor. Pokud chcete použít variantu pro Visual Studio, otevřený soubor nazvěte v odpovědi f. Vypusťte v odpovědi všechny zbytečné mezery.
+
+odpoved: FILE *f=fopen("data.txt","r");
+
+====================================================================================================================
+
+# Uloha 9
+Co vytiskne následující fragment kódu:
+
+int n = 7;
+switch (n) {
+	case 6: printf("X"); break;
+	case 7: printf("XX");
+	case 8: printf("XXX"); break;
+	default: printf("XXXX")
+}
+
+a. XX
+b. XXX
+c. XXXX
+d. XXXXX
+
+oznaceno: d; case 7->splneno, switch pokracuje se vsemi ostatnimi pripady dokud nenajde break.
+====================================================================================================================
+
+# Uloha 10
+Zašrtněte správné vysvětlení významu kódu funkce swap, která by měla prohodit hodnoty dvou proměnných:
+void swap(int a, int b) {
+	int c;
+	c = a; a = b; b = c;
+}
+
+int A,B;
+swap(A,B);
+
+a. vytvoří na zásobníku buňky a, b a c, naplní je hodnotami a posléze je opět ze zásobníku vymaže
+b. prohodí obsah proměných A a B
+c. vymaže obsah proměnných A a B
+d. neprovede nic
+
+oznaceno: d; funkce swap nepristupuje k zadnym globalnim promennym a hodnoty 'a' a 'b' se smazou ze zasobniku, jakmile funkce skonci.
+
+====================================================================================================================
+
