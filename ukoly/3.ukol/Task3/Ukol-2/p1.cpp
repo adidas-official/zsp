@@ -5,14 +5,14 @@
 
 
 int test_id_dne(int id_dne) {
-	// otestuje (ovìøí) identifikátor dne v týdnu, pøedpokládá se hodnota identifikátoru v rozsahu <1; 7>
-	// vrátí hodnotu 0 v pøípadì chybného identifikátoru, jinak hodnotu 1
+	// otestuje (ovï¿½ï¿½ï¿½) identifikï¿½tor dne v tï¿½dnu, pï¿½edpoklï¿½dï¿½ se hodnota identifikï¿½toru v rozsahu <1; 7>
+	// vrï¿½tï¿½ hodnotu 0 v pï¿½ï¿½padï¿½ chybnï¿½ho identifikï¿½toru, jinak hodnotu 1
 	return (int)id_dne > 0 && id_dne <= POCET_TEPLOT_TYDEN;
 }
 
 
 char* nazev_dne(int id_dne) {
-	// vrátí název dne podle identifikátoru
+	// vrï¿½tï¿½ nï¿½zev dne podle identifikï¿½toru
 	char nazvyDnu[10][10] = {
 		"Pondeli",
 		"Utery",
@@ -27,11 +27,11 @@ char* nazev_dne(int id_dne) {
 	if (test_id_dne(id_dne)) {
 		s = (char*) malloc(10 * sizeof(char));
 		if (s == NULL)
-			return NULL;  // chyba: nepodaøila se alokace øetìzce v pamìti
+			return NULL;  // chyba: nepodaï¿½ila se alokace ï¿½etï¿½zce v pamï¿½ti
 
 		// Nefunguje protoze windows
-		// strcpy_s(s, 10, nazvyDnu[id_dne - 1]); // kopie názvu dne odpovídající dnu urèeném jeho identifikátor v týdnu
-		strncpy(s, nazvyDnu[id_dne - 1], sizeof(s)); // kopie názvu dne odpovídající dnu urèeném jeho identifikátor v týdnu
+		// strcpy_s(s, 10, nazvyDnu[id_dne - 1]); // kopie nï¿½zvu dne odpovï¿½dajï¿½cï¿½ dnu urï¿½enï¿½m jeho identifikï¿½tor v tï¿½dnu
+		strncpy(s, nazvyDnu[id_dne - 1], sizeof(s)); // kopie nï¿½zvu dne odpovï¿½dajï¿½cï¿½ dnu urï¿½enï¿½m jeho identifikï¿½tor v tï¿½dnu
 		return s;
 	}
 	else {
@@ -41,83 +41,83 @@ char* nazev_dne(int id_dne) {
 
 
 int zapis_teplotu(double *teploty_tyden, int pocet_teplot, int id_dne, double teplota) {
-	// zapíše do tabulky teplot teplotu pro zadaný den, pozice v tabulce pro odpovidající den je urèena hodnotou id_dne
-	// pøedpokládá se hodnota identifikátoru dne èíslováno od 1, pøi chybných datech, pøi neplatném identifikátoru dne vrátí hodnotu 0, jinak hodnotu 1
+	// zapï¿½e do tabulky teplot teplotu pro zadanï¿½ den, pozice v tabulce pro odpovidajï¿½cï¿½ den je urï¿½ena hodnotou id_dne
+	// pï¿½edpoklï¿½dï¿½ se hodnota identifikï¿½toru dne ï¿½ï¿½slovï¿½no od 1, pï¿½i chybnï¿½ch datech, pï¿½i neplatnï¿½m identifikï¿½toru dne vrï¿½tï¿½ hodnotu 0, jinak hodnotu 1
 	int test_id = test_id_dne(id_dne);
 	if (test_id) {
 		teploty_tyden[id_dne - 1] = teplota;
 	};
 
-	return 0; // todo du, využít funkce test_id_dne
+	return 0; // todo du, vyuï¿½ï¿½t funkce test_id_dne
 }
 
 
 int precti_teplotu(double *teploty_tyden, int pocet_teplot, int id_dne, double *teplota) {
-	// pøeète z tabulky teplot teplotu pro zadaný den, pozice v tabulce pro odpovidající den je urèena hodnotou id_dne, hodnota teploty je zapsána do výstupního parametru teplota
-	// pøedpokládá se hodnota identifikátoru dne èíslováno od 1, pøi chybných datech, pøi neplatném identifikátoru dne vrátí hodnotu 0, jinak hodnotu 1
-	return 0; // todo du, využít funkce test_id_dne
+	// pï¿½eï¿½te z tabulky teplot teplotu pro zadanï¿½ den, pozice v tabulce pro odpovidajï¿½cï¿½ den je urï¿½ena hodnotou id_dne, hodnota teploty je zapsï¿½na do vï¿½stupnï¿½ho parametru teplota
+	// pï¿½edpoklï¿½dï¿½ se hodnota identifikï¿½toru dne ï¿½ï¿½slovï¿½no od 1, pï¿½i chybnï¿½ch datech, pï¿½i neplatnï¿½m identifikï¿½toru dne vrï¿½tï¿½ hodnotu 0, jinak hodnotu 1
+	return 0; // todo du, vyuï¿½ï¿½t funkce test_id_dne
 }
 
 
 double prumerna_teplota(double* teploty_tyden, int pocet_teplot) {
-	// spoèítá prùmìrnou teplotu ze všech dnù v týdnu, výsledek vrátí návratovou hodnotou funkce
+	// spoï¿½ï¿½tï¿½ prï¿½mï¿½rnou teplotu ze vï¿½ech dnï¿½ v tï¿½dnu, vï¿½sledek vrï¿½tï¿½ nï¿½vratovou hodnotou funkce
 	return 0; // todo du
 }
 
 
 double maximalni_teplota(double* teploty_tyden, int pocet_teplot) {
-	// urèí maximální teplotu ze všech dnù v týdnu, výsledek vrátí návratovou hodnotou funkce
+	// urï¿½ï¿½ maximï¿½lnï¿½ teplotu ze vï¿½ech dnï¿½ v tï¿½dnu, vï¿½sledek vrï¿½tï¿½ nï¿½vratovou hodnotou funkce
 	return 0; // todo du
 }
 
 
 int pozice_teploty(double* teploty_tyden, int pocet_teplot, double teplota) {
-	// vrátí identifkátor dne (pozici) s hledanou teplotou, èíslováno od nuly
+	// vrï¿½tï¿½ identifkï¿½tor dne (pozici) s hledanou teplotou, ï¿½ï¿½slovï¿½no od nuly
 	return 0; // todo du
 }
 
 
 int pocet_dnu_teplota(double* teploty_tyden, int pocet_teplot, double teplota) {
-	// spoète poèet dnù, ve kterých nastala zadaná teplota
+	// spoï¿½te poï¿½et dnï¿½, ve kterï¿½ch nastala zadanï¿½ teplota
 	return 0; // todo du
 }
 
 
 void nacti_teplotu_den(double *teploty_tyden, int pocet_teplot) {
-	// pøeète do tabulky teplot hodnotu pro zadaný den, zajisti naètení identifkátoru dne v rozsahu 1 až 7 a teploty ze standardniho vstupu, zajisti zapis do tabulky teplot
+	// pï¿½eï¿½te do tabulky teplot hodnotu pro zadanï¿½ den, zajisti naï¿½tenï¿½ identifkï¿½toru dne v rozsahu 1 aï¿½ 7 a teploty ze standardniho vstupu, zajisti zapis do tabulky teplot
 	printf("Zadej teplotu pro konkretni den ve formatu <den mezera teplota> ");
 	// todo du
-	// použít jeden pøíkaz scanf pro naètení všech údajù
-	// + využít funkce zapis_teplotu
+	// pouï¿½ï¿½t jeden pï¿½ï¿½kaz scanf pro naï¿½tenï¿½ vï¿½ech ï¿½dajï¿½
+	// + vyuï¿½ï¿½t funkce zapis_teplotu
 }
 
 void nacti_teplotu_tyden(double *teploty_tyden, int pocet_teplot) {
-	// naète do tabulky teplot data za celý týden
+	// naï¿½te do tabulky teplot data za celï¿½ tï¿½den
 	printf("Zadani teplot pro cely tyden\n");
 	// todo du
 	for (int i = 1; i < POCET_TEPLOT_TYDEN + 1; i++) {
 		double teplota;
 		std::cout << "Teplota " << std::endl;
 		std::cin >> teplota;
-		zapis_teplotu(teploty_tyden, POCET_TEPLOT_TYDEN, i, teplota);
+		zapis_teplotu(teploty_tyden, pocet_teplot, i, teplota);
 	}
 	// zapis_teplotu(*teploty_tyden, POCET_TEPLOT_TYDEN, );
-	// + využít funkce zapis_teplotu
+	// + vyuï¿½ï¿½t funkce zapis_teplotu
 }
 
 void tisk_teploty(double *teploty_tyden, int pocet_teplot) {
-	// vypíše obsah tabulky teplot
+	// vypï¿½e obsah tabulky teplot
 	// todo du
-	// + využít funkce precti_teplotu
+	// + vyuï¿½ï¿½t funkce precti_teplotu
 }
 
 void tisk_statistika(double *teploty_tyden, int pocet_teplot) {
-	// získá hodnoty pro statistku (prùmìrná teplota, maximální teplota, poèet dnù s maximální teplotou) a vytiskne výsledky na standardní výstup
+	// zï¿½skï¿½ hodnoty pro statistku (prï¿½mï¿½rnï¿½ teplota, maximï¿½lnï¿½ teplota, poï¿½et dnï¿½ s maximï¿½lnï¿½ teplotou) a vytiskne vï¿½sledky na standardnï¿½ vï¿½stup
 	// todo du
 }
 
 void zapis_do_souboru_statistika(double* teploty_tyden, int pocet_teplot, char* nazev_souboru) {
-	// získá hodnoty pro statistiku (prùmìrná teplota, maximální teplota, poèet dnù s maximální teplotou) a zapíše výsledky do textového souboru
+	// zï¿½skï¿½ hodnoty pro statistiku (prï¿½mï¿½rnï¿½ teplota, maximï¿½lnï¿½ teplota, poï¿½et dnï¿½ s maximï¿½lnï¿½ teplotou) a zapï¿½e vï¿½sledky do textovï¿½ho souboru
 	// todo du
 }
 
@@ -128,6 +128,19 @@ void zapis_do_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *naz
 
 
 void nacti_ze_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *nazev_souboru) {
+	FILE *file = fopen(nazev_souboru, "r");
+	char buffer[32];
+	if (file == NULL) {
+		std::cout << "Soubor nelze otevrit" << std::endl;
+		exit(2);
+	}
+
+	for (int i = 0; i < pocet_teplot + 1; i++) {
+		fgets(buffer, 32, file);
+		zapis_teplotu(teploty_tyden, pocet_teplot, i, std::stod(buffer));
+	}
+	fclose(file);
+
 	// nacte tabulku teplot ze souboru
 	// todo du
 }
@@ -173,44 +186,44 @@ void operace(double *teploty_tyden) {
 			} break;
 			case '2': {
 				char soubor[10] = "data.txt";
-				// todo du - naèíst název souboru
+				// todo du - naï¿½ï¿½st nï¿½zev souboru
 				nacti_ze_souboru_teploty(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);			
 			} break;
 			case '3': {
 				char soubor[10] = "data.txt";
-				// todo du - naèíst název souboru
+				// todo du - naï¿½ï¿½st nï¿½zev souboru
 				zapis_do_souboru_teploty(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);			
 			} break;
 			case '4': {
 				tisk_teploty(teploty_tyden, POCET_TEPLOT_TYDEN);
 			} break;
 			case '5': {
-				// pøeèti den 
+				// pï¿½eï¿½ti den 
 				int den = 0;
 				double teplota = 0;
-				// todo du - naèíst identifkátor dne
+				// todo du - naï¿½ï¿½st identifkï¿½tor dne
 				precti_teplotu(teploty_tyden, POCET_TEPLOT_TYDEN, den, &teplota);
 				printf("Teplota v tento den: %.4f", teplota);
 			} break;
 			case '6': {
-				// pøeèti den a hodnotu teploty
+				// pï¿½eï¿½ti den a hodnotu teploty
 				int den = 0;
 				double teplota = 0;
-				// todo du - naèíst identifikátor dne a teplotu
+				// todo du - naï¿½ï¿½st identifikï¿½tor dne a teplotu
 				zapis_teplotu(teploty_tyden, POCET_TEPLOT_TYDEN, den, teplota);
 			} break;
 			case '7': {
 				char soubor[10] = "data.txt";			
 				tisk_statistika(teploty_tyden, POCET_TEPLOT_TYDEN);
 
-				// Není v ukázkovém exe-souboru. (!!!)
-				// Dotazát se na zápis do souboru (uložení do souboru), odpovìï stiskem klávesy <A> nebo <N>. V pøípadì odpovìdi ano, naèíst název souboru. A zobrazit informaci, "Data byla zapsána do souboru nazev souboru."
+				// Nenï¿½ v ukï¿½zkovï¿½m exe-souboru. (!!!)
+				// Dotazï¿½t se na zï¿½pis do souboru (uloï¿½enï¿½ do souboru), odpovï¿½ï¿½ stiskem klï¿½vesy <A> nebo <N>. V pï¿½ï¿½padï¿½ odpovï¿½di ano, naï¿½ï¿½st nï¿½zev souboru. A zobrazit informaci, "Data byla zapsï¿½na do souboru nazev souboru."
 				zapis_do_souboru_statistika(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);
 			} break;
 			default: {
-				printf("Neplatná hodnota volby!");
+				printf("Neplatnï¿½ hodnota volby!");
 			} break;
 		}
-
+	
 	}
 }
