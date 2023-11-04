@@ -101,7 +101,7 @@ void nacti_teplotu_tyden(double *teploty_tyden, int pocet_teplot) {
 		std::cin >> teplota;
 		zapis_teplotu(teploty_tyden, pocet_teplot, i, teplota);
 	}
-	// zapis_teplotu(*teploty_tyden, POCET_TEPLOT_TYDEN, );
+	while(getchar() != '\n');
 	// + vyu��t funkce zapis_teplotu
 }
 
@@ -123,6 +123,18 @@ void zapis_do_souboru_statistika(double* teploty_tyden, int pocet_teplot, char* 
 
 void zapis_do_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *nazev_souboru) {
 	// zapise tabulku teplot do souboru
+	while (getchar() != '\n');
+
+	FILE *file = fopen("test.txt", "w");
+	if (file == NULL) {
+		std::cout << "Soubor nelze otevrit" << std::endl;
+		exit(2);
+	}
+
+	for (int i = 0; i < pocet_teplot; i++) {
+		fprintf(file, "%lf\n", teploty_tyden[i]);
+	}
+	fclose(file);
 	// todo du
 }
 

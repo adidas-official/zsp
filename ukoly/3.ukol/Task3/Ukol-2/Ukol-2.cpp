@@ -18,9 +18,6 @@ int main()
 	}
 
 	operace(teploty_tyden);
-	for (int i = 0; i < POCET_TEPLOT_TYDEN; i++) {
-		std::cout << teploty_tyden[i] << std::endl;
-	}
 
 	return 0;
 }
