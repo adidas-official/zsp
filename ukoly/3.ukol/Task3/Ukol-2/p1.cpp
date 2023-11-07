@@ -2,6 +2,10 @@
 #include "p1.h"
 #include <iostream>
 #include <string.h>
+#include <string>
+#include <ctype.h>
+#include <cmath>
+#include <algorithm>
 
 
 int test_id_dne(int id_dne) {
@@ -58,9 +62,10 @@ int precti_teplotu(double *teploty_tyden, int pocet_teplot, int id_dne, double *
 	// p�edpokl�d� se hodnota identifik�toru dne ��slov�no od 1, p�i chybn�ch datech, p�i neplatn�m identifik�toru dne vr�t� hodnotu 0, jinak hodnotu 1
 	while (1) {
 		if (test_id_dne(id_dne)) {
-			std::cout << "Teplota v den " << id_dne << ": " << teploty_tyden[id_dne -1] << std::endl;
+			printf("| Teplota %-15s %5.2f stupnu\n", nazev_dne(id_dne), teploty_tyden[id_dne - 1]);
 			return 1;
 		} 
+		std::cout << "Zadejte index dne [1-7]";
 		std::cin >> id_dne;
 	}
 	// neplatny identifikator uz kontroluje `test_id_dne(id_dne)`
@@ -105,7 +110,16 @@ int pozice_teploty(double* teploty_tyden, int pocet_teplot, double teplota) {
 
 int pocet_dnu_teplota(double* teploty_tyden, int pocet_teplot, double teplota) {
 	// spo�te po�et dn�, ve kter�ch nastala zadan� teplota
-	return 0; // todo du
+	int max = maximalni_teplota(teploty_tyden, pocet_teplot);
+	int count = 0;
+
+	for (int i = 0; i < pocet_teplot; i++) {
+		if (teploty_tyden[i] == max) {
+			count++;
+		}
+	}
+
+	return count;
 }
 
 
@@ -114,19 +128,27 @@ void nacti_teplotu_den(double *teploty_tyden, int pocet_teplot) {
 	printf("Zadej teplotu pro konkretni den ve formatu <den mezera teplota> ");
 	// todo du
 	// pou��t jeden p��kaz scanf pro na�ten� v�ech �daj�
+	int den_id;
+	double teplota;
+	std::cin >> den_id >> teplota;
+
+	zapis_teplotu(teploty_tyden, pocet_teplot, den_id, teplota);
 	// + vyu��t funkce zapis_teplotu
 }
 
 void nacti_teplotu_tyden(double *teploty_tyden, int pocet_teplot) {
 	// na�te do tabulky teplot data za cel� t�den
 	printf("Zadani teplot pro cely tyden\n");
+	double teplota;
+	char* den;
 	// todo du
 	for (int i = 1; i < POCET_TEPLOT_TYDEN + 1; i++) {
-		double teplota;
-		std::cout << "Teplota " << std::endl;
+		den = nazev_dne(i);
+		std::cout << "Teplota " << den << std::endl;
 		std::cin >> teplota;
 		zapis_teplotu(teploty_tyden, pocet_teplot, i, teplota);
 	}
+
 	while(getchar() != '\n');
 	// + vyu��t funkce zapis_teplotu
 }
@@ -135,7 +157,7 @@ void tisk_teploty(double *teploty_tyden, int pocet_teplot) {
 	// vyp�e obsah tabulky teplot
 	// todo du
 	// + vyu��t funkce precti_teplotu
-	std::cout << "Tisk teplot" << std::endl;
+	std::cout << "| Tisk teplot" << std::endl;
 
 	for (int i = 1; i < pocet_teplot + 1; i++) {
 		precti_teplotu(teploty_tyden, pocet_teplot, i, 0);
@@ -144,12 +166,42 @@ void tisk_teploty(double *teploty_tyden, int pocet_teplot) {
 
 void tisk_statistika(double *teploty_tyden, int pocet_teplot) {
 	// z�sk� hodnoty pro statistku (pr�m�rn� teplota, maxim�ln� teplota, po�et dn� s maxim�ln� teplotou) a vytiskne v�sledky na standardn� v�stup
+	double max = maximalni_teplota(teploty_tyden, pocet_teplot);
+	double avg = prumerna_teplota(teploty_tyden, pocet_teplot);
+	int max_pocet = pocet_dnu_teplota(teploty_tyden, pocet_teplot, max);
+
+	printf("| Statistika teplot\n");
+	printf("| - Prumerna teplota: %19.2f\n", avg);
+	printf("| - Maximalni teplota: %18.2f\n", max);
+	printf("| - Pocet dni s maximalni teplotou: %2.d\n", max_pocet);
+
 	// todo du
 }
 
 void zapis_do_souboru_statistika(double* teploty_tyden, int pocet_teplot, char* nazev_souboru) {
 	// z�sk� hodnoty pro statistiku (pr�m�rn� teplota, maxim�ln� teplota, po�et dn� s maxim�ln� teplotou) a zap�e v�sledky do textov�ho souboru
-	// todo du
+	std::string write;
+	std::cout << "Ulozit do souboru " << nazev_souboru << " [A] [N]? ";
+	std::cin >> write;
+	transform(write.begin(), write.end(), write.begin(), tolower);
+
+	if (write == "a" || write == "ano") {
+
+		FILE *file = fopen(nazev_souboru, "w");
+
+		double max = maximalni_teplota(teploty_tyden, pocet_teplot);
+		double avg = prumerna_teplota(teploty_tyden, pocet_teplot);
+		int max_pocet = pocet_dnu_teplota(teploty_tyden, pocet_teplot, max);
+
+		fprintf(file, "| Statistika teplot\n");
+		fprintf(file, "| - Prumerna teplota: %19.2f\n", avg);
+		fprintf(file, "| - Maximalni teplota: %18.2f\n", max);
+		fprintf(file, "| - Pocet dni s maximalni teplotou: %2.d\n", max_pocet);
+
+		std::cout << "Data byla zapsana do souboru " << nazev_souboru;
+		fclose(file);
+	}
+		// todo du
 }
 
 void zapis_do_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *nazev_souboru) {
@@ -181,7 +233,7 @@ void nacti_ze_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *naz
 	for (int i = 1; i < pocet_teplot + 1; i++) {
 		fgets(buffer, 32, file);
 		zapis_teplotu(teploty_tyden, pocet_teplot, i, std::stod(buffer));
-		std::cout << "teplota zapsana " << buffer;
+		// std::cout << "teplota zapsana " << buffer;
 	}
 	fclose(file);
 
@@ -213,7 +265,6 @@ char volba_menu() {
 
 
 void operace(double *teploty_tyden) {
-	std::cout << teploty_tyden << "*:" << *teploty_tyden << std::endl;
 	int konec = 0;
 	while (!konec) {
 		menu();
@@ -253,19 +304,22 @@ void operace(double *teploty_tyden) {
 			case '6': {
 				// p�e�ti den a hodnotu teploty
 				int den = 0;
-				if (!test_id_dne(den)) {
+				double teplota = 0;
+
+				while (!test_id_dne(den)) {
 					std::cout << "Zadejte den [1-7]" << std::endl;
 					std::cin >> den;
 				}
-				double teplota = 0;
-				std::cout << "Zadejte teplotu" << std::endl;
+
+				std::cout << "Zadejte teplotu: ";
 				std::cin >> teplota;
+
 				// todo du - na��st identifik�tor dne a teplotu
 				zapis_teplotu(teploty_tyden, POCET_TEPLOT_TYDEN, den, teplota);
-				std::cout << teploty_tyden[den - 1] << std::endl;
+				std::cout << "Teplota zmenena" << std::endl;
 			} break;
 			case '7': {
-				char soubor[10] = "data.txt";			
+				char soubor[10] = "stat.txt";			
 				tisk_statistika(teploty_tyden, POCET_TEPLOT_TYDEN);
 
 				// Nen� v uk�zkov�m exe-souboru. (!!!)
