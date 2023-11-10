@@ -1,4 +1,4 @@
 | Statistika teplot
-| - Prumerna teplota:               15.43
-| - Maximalni teplota:              20.00
-| - Pocet dni s maximalni teplotou:  2
+| - Prumerna teplota:               13.70
+| - Maximalni teplota:              16.60
+| - Pocet dni s maximalni teplotou:  1
