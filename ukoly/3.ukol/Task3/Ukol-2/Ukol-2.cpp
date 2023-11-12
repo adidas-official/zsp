@@ -6,7 +6,7 @@ int main()
 {
 	printf("/** \n* Nazev programu: Ukol 2\n");
 	printf("* Autor: Frydryn \n");
-	printf("* Datum: DD.MM.2021\n**/ \n\n");
+	printf("* Datum: 12.11.2023\n**/ \n\n");
 
 	const double defaultni_teplota = 0.0;
 	
