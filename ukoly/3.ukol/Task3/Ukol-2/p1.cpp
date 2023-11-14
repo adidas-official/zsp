@@ -56,8 +56,7 @@ int precti_teplotu(double *teploty_tyden, int pocet_teplot, int id_dne, double *
 	// predpoklada se hodnota identifikatoru dne od 1, pri chybnych datech, pri neplatnem identifikatoru dne vrati hodnotu 0, jinak hodnotu 1
 	while (1) {
 		if (test_id_dne(id_dne)) {
-			printf("| Teplota %-15s %5.2f stupnu\n", nazev_dne(id_dne), teploty_tyden[id_dne - 1]);
-#include <cmath>
+			printf("| Teplota %-15s\t %5.2f stupnu\n", nazev_dne(id_dne), teploty_tyden[id_dne - 1]);
 			return 1;
 		} 
 		printf("Zadejte index dne [1-7] ");
@@ -164,7 +163,12 @@ void tisk_statistika(double *teploty_tyden, int pocet_teplot) {
 	double avg = prumerna_teplota(teploty_tyden, pocet_teplot);
 	int max_pocet = pocet_dnu_teplota(teploty_tyden, pocet_teplot, max);
 
+
 	printf("| Statistika teplot\n");
+	for (int i = 1; i < pocet_teplot + 1; i++) {
+		precti_teplotu(teploty_tyden, pocet_teplot, i, 0);
+	}
+	printf("\n");
 	printf("| - Prumerna teplota: %19.2f\n", avg);
 	printf("| - Maximalni teplota: %18.2f\n", max);
 	printf("| - Pocet dni s maximalni teplotou: %2.d\n", max_pocet);
@@ -173,27 +177,28 @@ void tisk_statistika(double *teploty_tyden, int pocet_teplot) {
 
 void zapis_do_souboru_statistika(double* teploty_tyden, int pocet_teplot, char* nazev_souboru) {
 	// ziska hodnoty pro statistiku (prumerna teplota, maximalni teplota, pocet dnu s maximalni teplotou) a zapse vysledky do textoveho souboru
-	printf("Ulozit do souboru %s [A] [N]? ", nazev_souboru);
-	char write = tolower(getchar()); 
-	while(getchar() != '\n');
+	
+	FILE *file = fopen(nazev_souboru, "w");
 
-	if (write == 'a') {
+	if (!file) {
+		printf("Chyba pri ukladani do souboru");
+		return;
+	} 
 
-		FILE *file = fopen(nazev_souboru, "w");
+	double max = maximalni_teplota(teploty_tyden, pocet_teplot);
+	double avg = prumerna_teplota(teploty_tyden, pocet_teplot);
+	int max_pocet = pocet_dnu_teplota(teploty_tyden, pocet_teplot, max);
 
-		double max = maximalni_teplota(teploty_tyden, pocet_teplot);
-		double avg = prumerna_teplota(teploty_tyden, pocet_teplot);
-		int max_pocet = pocet_dnu_teplota(teploty_tyden, pocet_teplot, max);
-
-		fprintf(file, "| Statistika teplot\n");
-		fprintf(file, "| - Prumerna teplota: %19.2f\n", avg);
-		fprintf(file, "| - Maximalni teplota: %18.2f\n", max);
-		fprintf(file, "| - Pocet dni s maximalni teplotou: %2.d\n", max_pocet);
-
-		printf("Data byla zapsana do souboru %s\n", nazev_souboru);
-		fclose(file);
+	fprintf(file, "| Statistika teplot\n");
+	for (int i = 1; i < pocet_teplot +1; i++) {
+		fprintf(file, "| Teplota %-15s \t%5.2f stupnu\n", nazev_dne(i), teploty_tyden[i - 1]);
 	}
-		// todo du
+	fprintf(file, "\n| - Prumerna teplota: %19.2f\n", avg);
+	fprintf(file, "| - Maximalni teplota: %18.2f\n", max);
+	fprintf(file, "| - Pocet dni s maximalni teplotou: %2.d\n", max_pocet);
+
+	printf("Data byla zapsana do souboru %s\n", nazev_souboru);
+	fclose(file);
 }
 
 void zapis_do_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *nazev_souboru) {
@@ -224,8 +229,8 @@ void nacti_ze_souboru_teploty(double *teploty_tyden, int pocet_teplot, char *naz
 	for (int i = 1; i < pocet_teplot + 1; i++) {
 		fgets(buffer, 32, file);
 		zapis_teplotu(teploty_tyden, pocet_teplot, i, atof(buffer));
-		printf("teplota zapsana %s", buffer);
 	}
+	printf("Teploty ze souboru nacteny. Pro zobrazeni teplot vyberte moznost 4.\n");
 	fclose(file);
 
 }
@@ -268,12 +273,27 @@ void operace(double *teploty_tyden) {
 				nacti_teplotu_tyden(teploty_tyden, POCET_TEPLOT_TYDEN);			
 			} break;
 			case '2': {
-				char soubor[10] = "data.txt";
+				char soubor[20+1];
+				printf("Zadejte nazev souboru pro nacteni teplot nebo <N> pro navrat do menu: ");
+				scanf("%20s", soubor);
+				while(getchar() != '\n');
+
+				if (strcmp(soubor, "n") == 0) {
+					break;
+				}
+
 				// todo du - nacist nazev souboru
 				nacti_ze_souboru_teploty(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);			
 			} break;
 			case '3': {
-				char soubor[10] = "data.txt";
+				char soubor[20+1];
+				printf("Zadejte nazev souboru pro ulozeni teplot nebo <N> pro navrat do menu: ");
+				scanf("%20s", soubor);
+				while(getchar() != '\n');
+
+				if (strcmp(soubor, "n") == 0) {
+					break;
+				}
 				// todo du - nacist nazev souboru
 				zapis_do_souboru_teploty(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);			
 			} break;
@@ -294,12 +314,22 @@ void operace(double *teploty_tyden) {
 				printf("Teplota zmenena\n");
 			} break;
 			case '7': {
-				char soubor[10] = "stat.txt";			
 				tisk_statistika(teploty_tyden, POCET_TEPLOT_TYDEN);
 
+				printf("Ulozit do souboru [A] [N]? ");
+				char write = tolower(getchar()); 
+				while(getchar() != '\n');
 				// Neni v ukazkovem exe-souboru. (!!!)
 				// Dotazat se na zapis do souboru (ulozeni do souboru), odpoved stiskem klevesy <A> nebo <N>. V pripade odpovedi ano, nacist nazev souboru. A zobrazit informaci, "Data byla zapsana do souboru nazev souboru."
-				zapis_do_souboru_statistika(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);
+				if (write == 'a') {
+
+					char soubor[20+1];
+					printf("Zadejte nazev souboru: ");
+					scanf("%20s", soubor);
+					while(getchar() != '\n');
+
+					zapis_do_souboru_statistika(teploty_tyden, POCET_TEPLOT_TYDEN, soubor);
+				}
 			} break;
 			default: {
 				printf("Neplatn� hodnota volby!");
